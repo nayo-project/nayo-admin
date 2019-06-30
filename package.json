@@ -1,0 +1,26 @@
+{
+  "name": "nayo-admin-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@antv/data-set": "^0.10.2",
+    "@antv/g2": "^3.5.3",
+    "core-js": "^2.6.5",
+    "countup.js": "^2.0.4",
+    "js-cookie": "^2.2.0",
+    "nayo-admin-core": "^1.0.0",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
+    "@vue/cli-plugin-babel": "^3.6.0",
+    "@vue/cli-service": "^3.6.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}

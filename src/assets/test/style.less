@@ -1,0 +1,49 @@
+@import "variables";
+
+@font-face {
+  font-family: '@{icomoon-font-family}';
+  src:  url('@{icomoon-font-path}/@{icomoon-font-family}.eot?vqb7yi');
+  src:  url('@{icomoon-font-path}/@{icomoon-font-family}.eot?vqb7yi#iefix') format('embedded-opentype'),
+    url('@{icomoon-font-path}/@{icomoon-font-family}.ttf?vqb7yi') format('truetype'),
+    url('@{icomoon-font-path}/@{icomoon-font-family}.woff?vqb7yi') format('woff'),
+    url('@{icomoon-font-path}/@{icomoon-font-family}.svg?vqb7yi#@{icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="test-"], [class*=" test-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '@{icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.test-home {
+  &:before {
+    content: @test-home; 
+  }
+}
+.test-play {
+  &:before {
+    content: @test-play; 
+  }
+}
+.test-user-tie {
+  &:before {
+    content: @test-user-tie; 
+  }
+}
+.test-enlarge {
+  &:before {
+    content: @test-enlarge; 
+  }
+}
+
