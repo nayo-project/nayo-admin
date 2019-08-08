@@ -12,7 +12,7 @@
     "core-js": "^2.6.5",
     "countup.js": "^2.0.4",
     "js-cookie": "^2.2.0",
-    "nayo-admin-core": "^1.0.0",
+    "nayo-admin-core": "^1.0.6",
     "vue": "^2.6.10"
   },
   "devDependencies": {

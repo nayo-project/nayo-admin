@@ -1,7 +1,7 @@
 <template>
     <MenuItem :name="meta.name" :to="meta.to">
         <Icon :custom="meta.icon" v-if="meta.icon"></Icon>
-        <span>{{ meta.title }}</span>
+        <span>{{ meta.name }}</span>
     </MenuItem>
 </template>
 

@@ -33,7 +33,7 @@
                         if (Object.keys(route_meta).includes("children")) {
                             for (let child of route_meta.children) {
                                 if (child.active) {
-                                    _first_active_route_path = `${route_meta.path}${child.path}`;
+                                    _first_active_route_path = `${child.to}`;
                                     _first_active_route_tag = child.name;
                                     _first_open_route_name = route_meta.name;
                                 }
@@ -49,7 +49,7 @@
                     if (_first_active_route_tag == null && this.menu_list[0]) {
                         if (Object.keys(this.menu_list[0]).includes("children")) {
                             if (this.menu_list[0].children[0]) {
-                                _first_active_route_path = `${this.menu_list[0].path}${this.menu_list[0].children[0].path}`;
+                                _first_active_route_path = `${this.menu_list[0].children[0].to}`;
                                 _first_active_route_tag = this.menu_list[0].children[0].name;
                                 _first_open_route_name = this.menu_list[0].name;
                             }
@@ -58,7 +58,7 @@
                             _first_active_route_tag = this.menu_list[0].name;
                         }
                     }
-                    this.$router.push(_first_active_route_path);
+                    this.$router.replace(_first_active_route_path);
                 } else {
                     _first_active_route_path = this.$route.path;
                     for (let menu_meta of this.menu_list) {
@@ -79,7 +79,7 @@
                     }
                 }
                 if (!_first_active_route_tag) {
-                    this.$router.push("/");
+                    this.$router.replace("/");
                 }
                 if (_first_open_route_name) {
                     this.active_open_name = [ _first_open_route_name ];
@@ -99,9 +99,8 @@
                     let _temp = {};
                     if (!Object.keys(router_meta).includes("independent") && !router_meta.independent) {
                         if (Object.keys(router_meta).includes("children")) {
-                            _temp.name = router_meta.tag ? `${router_meta.tag}` : null;
+                            _temp.name = router_meta.name ? `${router_meta.name}` : null;
                             _temp.path = router_meta.path ? `${router_meta.path}` : null;
-                            _temp.title = router_meta.name ? router_meta.name: null;
                             _temp.icon = router_meta.icon ? router_meta.icon : null;
                             if (router_meta.active) {
                                 _temp.active = router_meta.active;
@@ -109,10 +108,9 @@
                             _temp.children = [];
                             for (let children of router_meta.children) {
                                 let _temp_children = {};
-                                _temp_children.name = children.tag ? `${children.tag}` : null;
+                                _temp_children.name = children.name ? `${children.name}` : null;
                                 _temp_children.icon = children.icon ? children.icon : null;
                                 _temp_children.to = `${_temp.path}${children.path}`;
-                                _temp_children.title = children.name ? children.name : null;
                                 _temp_children.pathReg = children.pathReg ? children.pathReg : null;
                                 if (children.active) {
                                     _temp_children.active = children.active;
@@ -120,9 +118,8 @@
                                 _temp.children.push(_temp_children);
                             }
                         } else {
-                            _temp.name = router_meta.tag ? `${router_meta.tag}` : null;
+                            _temp.name = router_meta.name ? `${router_meta.name}` : null;
                             _temp.path = router_meta.path ? `${router_meta.path}` : null;
-                            _temp.title = router_meta.name ? router_meta.name: null;
                             _temp.icon = router_meta.icon ? router_meta.icon : null;
                             _temp.to = router_meta.path ? `${router_meta.path}` : null;
                             _temp.pathReg = router_meta.pathReg ? router_meta.pathReg : null;
@@ -145,22 +142,7 @@
         },
         watch: {
             "$route"(route) {
-                for (let menu_meta of this.menu_list) {
-                    if (Object.keys(menu_meta).includes("children")) {
-                        for (let child_meta of menu_meta.children) {
-                            if (child_meta.pathReg.test(route.path)) {
-                                this.active_menu_name = child_meta.name;
-                                this.active_open_name = [ menu_meta.name ];
-                                break;
-                            }
-                        }
-                    } else {
-                        if (menu_meta.pathReg.test(route.path)) {
-                            this.active_menu_name = menu_meta.name;
-                            break;
-                        }
-                    }
-                }
+                this.init_menu_create();
                 this.$nextTick(() => {
                     this.$refs["nayo-menu"].updateOpened();
                     this.$emit("route_change", route);
