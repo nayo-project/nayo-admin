@@ -19,7 +19,6 @@ demo版：[GitHub](https://github.com/nayo-project/nayo-admin)
 ps: 精简版与demo版的区别请查阅文档
 
 ---
-![demo](https://github.com/nayo-project/nayo-admin/image/demo.png)
 
 ### 1. 简介
 Nayo-Admin是Nayo Project的成员之一，基于Vue\iView\Nayo-Admin-Core进行开发的后台管理系统前端解决方案。Nayo-Admin的核心思想是“页面的高内聚和低耦合，以便在合作开发和长期维护中，能使开发者能快速上手和重构页面，从而节省时间成本”。
