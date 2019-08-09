@@ -28,7 +28,7 @@ Nayo-Admin是Nayo Project的成员之一，基于Vue\iView\Nayo-Admin-Core进行
 
 语言 | 地址
 :-: | :-:
-中文 | [Doc](https://note.youdao.com/)
+中文 | [Doc](https://nayo-project.github.io/nayo-admin-doc-cn/)
 
 ### 3. Layout(布局)开发计划
 由于Nayo Admin是基于Nayo-Admin-Core进行开发的，允许高度自由的Layout(布局)编写。
